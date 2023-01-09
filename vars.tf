@@ -1,6 +1,22 @@
-variable "subnet_id" {
-  default = "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/${VNET_RG}/providers/Microsoft.Network/virtualNetworks/${VNET_NAME}/subnets/${CLUSTER_NAME}-private-endpoints"
+variable "AZURE_SUBSCRIPTION_ID" {
   type = string
+}
+
+variable "VNET_RG" {
+  type = string
+}
+
+variable "VNET_NAME" {
+  type = string
+}
+
+variable "CLUSTER_NAME" {
+  type = string
+}
+
+
+locals {
+  subnet_id = "/subscriptions/${AZURE_SUBSCRIPTION_ID}/resourceGroups/${VNET_RG}/providers/Microsoft.Network/virtualNetworks/${VNET_NAME}/subnets/${CLUSTER_NAME}-private-endpoints"
 }
 
 variable "storageaccount_name" {

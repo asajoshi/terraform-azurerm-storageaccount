@@ -33,7 +33,7 @@ resource "azurerm_private_endpoint" "storageaccount-endpoint" {
   name                = azurerm_storage_account.pulsarsaccount.name
   location            = azurerm_resource_group.pulsars.location
   resource_group_name = azurerm_resource_group.pulsars.name
-  subnet_id           = var.subnet_id
+  subnet_id           = local.subnet_id
   private_service_connection {
     name                           = "privateserviceconnection"
     private_connection_resource_id = azurerm_storage_account.pulsarsaccount.id
